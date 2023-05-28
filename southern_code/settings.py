@@ -137,3 +137,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # weather constants
 WEATHER_SERVICE_KEY = environ.get("WEATHER_SERVICE_KEY", default=None)
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://southerncodefullstackdeploy-production.up.railway.app",
+]
