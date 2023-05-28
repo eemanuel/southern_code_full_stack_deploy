@@ -1,0 +1,140 @@
+<table id="weather_info" class="table-fixed lg:flex lg:justify-center lg:pb-10">
+    <thead>
+    </thead>
+    <tbody>
+        <tr class="bg-gray-200">
+            <th class="md:px-4 md:py-2 text-center">City</th>
+            {% if city_name and country %}
+                <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                    {{ city_name }} ({{ country }})
+                </td>
+            {% elif city_name and not country %}
+                <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                    {{ city_name }}
+                </td>
+            {% elif not city_name and country %}
+                <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                    {{ country }}
+                </td>
+            {% else %}
+                <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300"></td>
+            {% endif %}
+        </tr>
+        </tr>
+        {% if weathers %}
+            {% for item in weathers %}
+                <tr class="bg-gray-100">
+                    <th class="md:px-4 md:py-2 text-center"></th>
+                    <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                        {{ item.main }}
+                    </td>
+                </tr>
+                <tr class="bg-gray-100">
+                    <th class="md:px-4 md:py-2 text-center"></th>
+                    <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                        {{ item.description }}
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr class="bg-gray-100">
+                <th class="md:px-4 md:py-2 text-center">Desc</th>
+                <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300"></td>
+            </tr>
+        {% endif %}
+        </tr>
+        {% if current_temp <= -5 %}
+            <tr class="bg-cyan-300">
+        {% elif current_temp <= 10 %}
+            <tr class="bg-cyan-500">
+        {% elif current_temp <= 17 %}
+            <tr class="bg-emerald-400">
+        {% elif current_temp <= 22 %}
+            <tr class="bg-green-400">
+        {% elif current_temp <= 28 %}
+            <tr class="bg-lime-500">
+        {% elif current_temp <= 33 %}
+            <tr class="bg-amber-600">
+        {% elif current_temp <= 40 %}
+            <tr class="bg-red-600">
+        {% elif current_temp <= 100 %}
+            <tr class="bg-red-500">
+        {% else %}
+            <tr class="bg-gray-200">
+        {% endif %}
+            <th class="md:px-4 md:py-2 text-center">Temperature</th>
+                <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                    {% if current_temp %}
+                        {{ current_temp }}°
+                    {% endif %}
+                </td>
+
+        </tr>
+        <tr class="bg-gray-100">
+            <th class="md:px-4 md:py-2 text-center">Feels Like</th>
+            <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                {% if feels_like %}
+                    {{ feels_like }}°
+                {% endif %}
+            </td>
+        </tr>
+        <tr class="bg-gray-200">
+            <th class="md:px-4 md:py-2 text-center">Max Temp</th>
+            <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                {% if temp_max %}
+                    {{ temp_max }}°
+                {% endif %}
+            </td>
+        </tr>
+        <tr class="bg-gray-100">
+            <th class="md:px-4 md:py-2 text-center">Min Temp</th>
+            <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                {% if min_temp %}
+                    {{ min_temp }}°
+                {% endif %}
+            </td>
+        </tr>
+        <tr class="bg-gray-200">
+            <th class="md:px-4 md:py-2 text-center">Humidity</th>
+            <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                {% if humidity %}
+                    {{ humidity }}%
+                {% endif %}
+            </td>
+        </tr>
+        <tr class="bg-gray-100">
+            <th class="md:px-4 md:py-2 text-center">Pressure</th>
+            <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                {% if pressure %}
+                    {{ pressure }} hPa
+                {% endif %}
+            </td>
+        </tr>
+        <tr class="bg-gray-200">
+            <th class="md:px-4 md:py-2 text-center">Clouds %</th>
+            <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                {% if clouds_percent %}
+                    {{ clouds_percent }} %
+                {% endif %}
+            </td>
+        </tr>
+        <tr class="bg-gray-100">
+            <th class="md:px-4 md:py-2 text-center">Wind</th>
+            {% if wind_speed and wind_deg %}
+                <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                    {{ wind_speed }} m/s ({{ wind_deg }}°)
+                </td>
+            {% elif wind_speed and not wind_deg %}
+                <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                    {{ wind_speed }} m/s
+                </td>
+            {% elif not wind_speed and wind_deg %}
+                <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300">
+                    {{ wind_deg }}°
+                </td>
+            {% else %}
+                <td class="md:px-4 md:py-2 text-center border border-2 border-gray-300"></td>
+            {% endif %}
+        </tr>
+    </tbody>
+</table>

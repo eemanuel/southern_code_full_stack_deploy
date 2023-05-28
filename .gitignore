@@ -1,0 +1,14 @@
+# General
+node_modules/
+
+# Backend
+__pycache__/
+
+# # Environments
+.env
+venv/
+
+# # Django:
+*.log
+*.sqlite3
+*.sqlite3-journal

@@ -1,0 +1,20 @@
+<div id="weather_info">
+    {% load static %}
+    <div class="lg:flex lg:justify-center">
+        <img src="{% static 'error.jpg' %}" alt="Broken robot">
+    </div>
+    <div class="font-bold text-xl text-gray-100 md:pt-3 lg:flex lg:justify-center">
+        {% if error %}
+            Error
+        {% else %}
+            Invalid or Null Values
+        {% endif %}
+    </div>
+    <div class="text-base text-gray-100 md:pt-2 md:pb-5 lg:flex lg:justify-center"></p>
+        {% if error %}
+            {{ error }}
+        {% else %}
+            Values in input are worng
+        {% endif %}
+    </div>
+</div>

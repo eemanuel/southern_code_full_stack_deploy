@@ -1,0 +1,5 @@
+[tool.pycln]
+path = "/souther_code/"
+expand_stars=false
+all=true
+no_gitignore=false
